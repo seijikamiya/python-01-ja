@@ -14,8 +14,6 @@ def add_book(shelf: list[dict], title: str, read_status:int, id:int):
     book['read_status'] = read_status
     shelf.append(book)
 
-
-
 def edit_book(shelf: list[dict], title: str, new_title: str | bool = False, new_read_status: int | bool = False):
     """
     This function edits the information of the book.
