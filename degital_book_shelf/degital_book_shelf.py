@@ -54,12 +54,6 @@ def search_book(shelf: list[dict], title: str | bool=False, read_status: int | b
             search_result.append(book["title"])
     return search_result
 
-def book_existed(shelf: list[dict], title: str):
-    for index, book in enumerate(shelf):
-        if book["title"] == title:
-            return index+1
-    return False
-
 def delete_book(shelf: list[dict], title: str)->list[dict]:
     """
     This function deletes the book from the shelf.
