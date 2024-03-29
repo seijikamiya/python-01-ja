@@ -12,6 +12,7 @@ def add_book(shelf: list[dict], title: str, read_status:int, id:int):
     book['ID'] = id
     book['title'] = title
     book['read_status'] = read_status
+    print(f"New book (title: {title}, read_status: {read_status}) is added!!\n")
     shelf.append(book)
 
 def edit_book(shelf: list[dict], title: str, new_title: str | bool = False, new_read_status: int | bool = False):
@@ -88,9 +89,19 @@ def view_shelf_stats(shelf:list[dict]):
     print(f"number of unread books: {number_of_unread}")
     print("=============================\n")
 
-def check_input(comment, target_number=False):
+def check_input(text: str, target_number: list=False)->int | str:
+    """
+    This function checks if the input is correct.
+
+    Args:
+        text (str): Text displayed in the console.
+        target_number (list, optional):  List of numbers to be selected by the user. Defaults to False.
+
+    Returns:
+        int | str: User input
+    """
     while True:
-        user_input = input(comment).strip()
+        user_input = input(text).strip()
         if target_number:
             if user_input.isdigit() and int(user_input) in target_number:
                 return int(user_input)
@@ -138,7 +149,7 @@ if __name__ == '__main__':
                             print("Same title exists in your library!!\n")
                         else:
                             edit_book(shelf, title, new_title=new_title)
-                            print(f"{title} chenged to {new_title}")
+                            print(f"{title} chenged to {new_title}\nß")
                             break
                 else:
                     new_read_status = check_input("please input read status from 0(not done) or 1(done): ", [0, 1])
